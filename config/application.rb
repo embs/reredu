@@ -2,6 +2,16 @@ require_relative "boot"
 
 require "rails/all"
 
+module ActionController
+  class Base
+    # TODO: authlogic não é compatível com nossa versão do Rails.
+    #       implementar esse método corretamente depois.
+    def self.prepend_before_filter(anything)
+      prepend_before_action(anything)
+    end
+  end
+end
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

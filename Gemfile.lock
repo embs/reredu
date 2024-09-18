@@ -74,6 +74,11 @@ GEM
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
+    authlogic (3.4.6)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      request_store (~> 1.0)
+      scrypt (>= 1.2, < 3.0)
     base64 (0.2.0)
     bigdecimal (3.1.8)
     bindex (0.8.1)
@@ -82,6 +87,8 @@ GEM
     brakeman (6.2.1)
       racc
     builder (3.3.0)
+    byebug (11.1.3)
+    cancan (1.6.10)
     capybara (3.40.0)
       addressable
       matrix
@@ -100,6 +107,19 @@ GEM
       reline (>= 0.3.8)
     drb (2.2.1)
     erubi (1.13.0)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-aarch64-linux-musl)
+    ffi (1.17.0-arm-linux-gnu)
+    ffi (1.17.0-arm-linux-musl)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86-linux-gnu)
+    ffi (1.17.0-x86-linux-musl)
+    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.17.0-x86_64-linux-musl)
+    ffi-compiler (1.3.2)
+      ffi (>= 1.15.5)
+      rake
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -207,6 +227,8 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.10)
       io-console (~> 0.5)
+    request_store (1.7.0)
+      rack (>= 1.4)
     rexml (3.3.7)
     rubocop (1.66.1)
       json (~> 2.3)
@@ -238,6 +260,9 @@ GEM
       rubocop-rails
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
+    scrypt (2.1.1)
+      ffi-compiler (>= 0.0.2)
+      rake
     securerandom (0.3.1)
     selenium-webdriver (4.24.0)
       base64 (~> 0.2)
@@ -305,8 +330,11 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  authlogic
   bootsnap
   brakeman
+  byebug
+  cancan
   capybara
   debug
   importmap-rails
