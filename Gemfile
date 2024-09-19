@@ -4,7 +4,7 @@ gem 'authlogic', require: true
 gem 'cancan'
 gem 'byebug'
 gem 'sass-rails'
-gem 'compass-rails', '1.0.3'
+gem 'compass-rails', '2.0.1'
 gem 'humanizer'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
