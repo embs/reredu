@@ -1,0 +1,31 @@
+<!doctype html>
+<!--[if gt IE 8]><html class="gt-ie8" lang="pt-br"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="pt-br"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <%= content_tag :title, raw(page_title) %>
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag "bootstrap-redu.min" %>
+    <%= stylesheet_link_tag "basic" %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <%= javascript_include_tag "basic" %>
+    <%= render "shared/typekit" %>
+    <%= render "shared/analytics" %>
+    <%= yield :header_scripts_and_styles %>
+  </head>
+  <body>
+    <%= render "shared/outdated_browser_new" %>
+    <div class="main-wrapper">
+      <% if current_user %>
+        <%= render "shared/nav_global" %>
+      <% else %>
+        <%= render "shared/header_not_logged_in" %>
+      <% end %>
+      <%= render "shared/system_flash_message" %>
+      <%= yield %>
+      <div class="footer-pusher"></div>
+    </div>
+    <%= render "shared/footer" %>
+    <%= render "shared/olark" %>
+  </body>
+</html>

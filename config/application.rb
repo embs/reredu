@@ -12,6 +12,14 @@ module ActionController
   end
 end
 
+# TODO: tentando suportar o compass-rails
+#       tem um monkey patch igual em /home/embs/.rbenv/versions/3.3.5/bin/bundle
+class File
+  def self.exists?(args)
+    exist?(args)
+  end
+end
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -33,5 +41,26 @@ module Reredu
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.assets.precompile += %w(landing.js basic.js)
+    config.assets.precompile += %w(bootstrap-redu.min.css basic.css)
+
+    config.redu_services = {}
+    config.redu_services[:apps] = {
+      :url => "http://aplicativos.redu.com.br"
+    }
+    config.redu_services[:help_center] = {
+      :url => "http://ajuda.redu.com.br/"
+    }
+    config.redu_services[:dev] = {
+      :url => "http://developers.redu.com.br/"
+    }
+    config.redu_services[:blog] = {
+      :url => "http://blog.redu.com.br/"
+    }
+
+    config.name = "Redu"
+    config.tagline = "Rede Social Educacional"
+    config.description = "Rede Social Educacional"
+    config.email = "contato@redu.com.br"
   end
 end

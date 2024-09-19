@@ -2,7 +2,7 @@
 #class User < ActiveRecord::Base
 class User < ApplicationRecord
   # include Invitable::Base
-  # include Humanizer
+  include Humanizer
   # include UserSearchable
   # include EnrollmentService::BaseModelAdditions
   # include EnrollmentService::UserAdditions::ModelAdditions

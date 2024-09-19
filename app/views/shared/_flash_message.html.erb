@@ -1,0 +1,10 @@
+<% ["info", "notice", "error"].each do |type| %>
+  <% if flash[type.to_sym] %>
+    <div class="container_16 global-messages">
+      <div class="flash-message <%=type.to_s%>">
+        <span><%= h(flash[type.to_sym]) %></span>
+        <span class="replacement icon-delete-gray_8_10-before close-flash">Fechar</span>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,20 @@
+<% content_for :header_scripts_and_styles do %>
+  <%= javascript_include_tag "landing" %>
+<% end %>
+
+<%= render "landing/welcome" %>
+<div class="container">
+  <div class="landing-navigation content-body">
+    <%= render "landing/filters" %>
+    <hr id="segmentos" class="list-separator"/>
+    <%= render "landing/segments" %>
+    <hr id="vantagens" class="list-separator"/>
+    <%= render "landing/advantages" %>
+    <hr id="funcionalidades" class="list-separator"/>
+    <%= render "landing/functionalities" %>
+    <hr id="planos" class="list-separator"/>
+    <%= render "landing/plans" %>
+    <hr id="parceiros" class="list-separator"/>
+    <%= render "landing/partners" %>
+  </div>
+</div>

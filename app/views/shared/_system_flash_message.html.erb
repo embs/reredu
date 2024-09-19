@@ -1,0 +1,21 @@
+<%#
+  Mensagem do sistema com o flash.
+
+  Variáveis:
+    flash: flash message.
+%>
+
+<% if flash[:info] %>
+  <%= render "bootstrap/system_message", type: "info",
+    message: "<p><strong>Aviso.</strong> #{ raw(flash[:info]) }</p>" %>
+<% end %>
+
+<% if flash[:notice] %>
+  <%= render "bootstrap/system_message", type: "success",
+    message: "<p><strong>Muito bem!</strong> #{ raw(flash[:notice]) }</p>" %>
+<% end %>
+
+<% if flash[:error] %>
+  <%= render "bootstrap/system_message", type: "warning",
+    message: "<p><strong>Opa!</strong> #{ raw(flash[:error]) }</p>" %>
+<% end %>

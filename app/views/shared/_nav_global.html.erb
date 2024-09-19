@@ -1,0 +1,58 @@
+<div class="nav-global nav-global-fixed-top">
+  <style>
+    .main-wrapper { padding-top: 42px; }
+    .main-wrapper-old { padding-top: 57px; }
+  </style>
+  <div class="nav-global-inner">
+    <div class="nav-global-container">
+      <h1>
+        <%= link_to "Redu", application_path, :class => "nav-global-brand logo-redu-gray_140_40 text-replacement", :title => "Redu" %>
+      </h1>
+
+      <%= global_nav %>
+      <div class="nav-global-right-area">
+        <%= render "shared/form_search" %>
+        <div class="nav-global-buttons-dropdown button-toolbar pull-right">
+          <div class="button-group">
+            <button class="button-default nav-global-button-dropdown dropdown-toggle icon-profile-lightblue_16_18-before" data-toggle="dropdown">
+              <span class="button-dropdown-arrow icon-arrow-down-gray_8_10"></span>
+            </button>
+            <span class="dropdown-arrow icon-arrow-up-dropdown-lightblue_20_8 text-replacement">Seta</span>
+            <% cache ['nav_global_dropdown_menu', current_user.id] do %>
+              <div class="dropdown-menu nav-global-profile-dropdown">
+                <span class="nav-global-profile-header">
+                  <%= current_user.display_name %>
+                </span>
+                <ul class="nav-global-profile-items">
+                  <li class="nav-global-profile-item">
+                    <%= link_to "Meu Perfil", user_path(current_user), :class => "nav-global-profile-item-link icon-profile-lightblue_16_18-before", :title => "Meu Perfil" %>
+                    <%= link_to "editar", edit_user_path(current_user), :class => "nav-global-profile-item-link-secondary link-secondary", :title => "Editar perfil" %>
+                  </li>
+                  <li class="nav-global-profile-item">
+                    <%= link_to "Mensagens #{parentize current_user.unread_message_count}", user_messages_path(current_user), :class => "nav-global-profile-item-link icon-message-lightblue_16_18-before", :title => "Mensagens" %>
+                  </li>
+                  <li class="nav-global-profile-item">
+                    <%= link_to "Configurações", edit_user_path(current_user), :class => "nav-global-profile-item-link icon-manage-lightblue_16_18-before", :title => "Configurações" %>
+                  </li>
+                  <% current_user.partners.each do |partner| %>
+                    <li class="nav-global-profile-item">
+                      <%= link_to partner.name, partner_path(partner), :class => "nav-global-profile-item-link icon-partner-lightblue_16_18-before", :title => partner.name %>
+                    </li>
+                  <% end %>
+                  <% if can? :index, Partner %>
+                    <li class="nav-global-profile-item">
+                      <%= link_to "Parceiros", partners_path, :class => "nav-global-profile-item-link icon-partner-lightblue_16_18-before", :title => "Parceiros" %>
+                    </li>
+                  <% end %>
+                  <li class="nav-global-profile-item">
+                    <%= link_to "Sair", logout_path, :method => :delete, :title => "Sair", :class => "nav-global-profile-item-link nav-global-profile-item-link-iconless" %>
+                  </li>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
